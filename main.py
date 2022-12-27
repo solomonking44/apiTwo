@@ -47,15 +47,27 @@ img_copy = cv.bitwise_not(img_copy)
 # make black and white
 thresh, im_bw = cv.threshold(img_copy, 180, 255, cv.THRESH_BINARY)
 
+# find bold text
+# thresh1, im_bw1 = cv.threshold(img_copy, 230, 255, cv.THRESH_BINARY)
+
 # get text from image using tesseract
-ocr_result = pytesseract.image_to_string(im_bw)
+# ocr_result = pytesseract.image_to_string(im_bw)
+# adaptive thresholding
+# adaptive_threshold = cv.adaptiveThreshold(
+# img_copy, 255, cv.ADAPTIVE_THRESH_GAUSSIAN_C, cv.THRESH_BINARY, 3, 2)
+
+# image to get bold text
+bold_text = pytesseract.image_to_string(im_bw)
 
 
 # noise removal
-# im_bw = noiseRemoval(im_bw)
+im_noise = cv.fastNlMeansDenoising(im_bw, None, 8, 7, 21)
 
-cv.imshow("Image", im_bw)
-print(ocr_result)
+
+# show image
+cv.imshow("Adaptive Threshold", im_noise)
+# print(ocr_result)
+print(bold_text)
 # print(img_resized.shape)
 
 cv.waitKey(0)
