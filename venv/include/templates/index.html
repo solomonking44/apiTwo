@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+<!-- title -->
+{% block title %}
+<title>Simple OCR</title>
+{% endblock %}
+
+<!-- body -->
+{% block body %}
+<div class="h-100 mr-auto ml-auto align-items-center justify-content-center">
+    <h1>
+        Upload a document
+    </h1>
+    <form name="image_upload" action="http://localhost:5000/" method="POST" enctype="multipart/form-data">
+        <div class="input-group">
+            <label for="files">Select Image</label>
+            <input class="btn btn-success btn-lg" id="file" type="file" multiple />
+            <button type="submit" class="btn btn-outline-success">
+                Upload
+            </button>
+        </div>
+    </form>
+</div>
+
+
+{% endblock %}
