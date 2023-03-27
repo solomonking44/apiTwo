@@ -46,5 +46,4 @@ cv.imshow("GRAY IMAGE", img_resized)
 # this is so the image appears and stays up
 # otherwise it would show up and dissappear again
 cv.waitKey(0)
-
 # Thank you, Next!
